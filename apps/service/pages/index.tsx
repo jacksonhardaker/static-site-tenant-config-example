@@ -1,5 +1,7 @@
 import styles from './index.module.css';
-import { tenant } from '@incremental-test/config';
+import config from '@incremental-test/config';
+
+const { tenant } = config;
 
 export function Index() {
   /*
