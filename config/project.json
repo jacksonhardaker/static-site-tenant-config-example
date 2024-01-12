@@ -19,6 +19,14 @@
         "production": {
           "mode": "production"
         },
+        "production:orange": {
+          "configFile": "config/vite.config.orange.ts",
+          "mode": "production"
+        },
+        "production:apple": {
+          "configFile": "config/vite.config.apple.ts",
+          "mode": "production"
+        },
         "development:orange": {
           "configFile": "config/vite.config.orange.ts",
           "mode": "development"

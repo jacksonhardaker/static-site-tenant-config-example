@@ -25,10 +25,10 @@
         },
         "production": {},
         "production:orange": {
-          "dependsOn": ["build:development:orange^"]
+          "dependsOn": ["build:production:orange^"]
         },
         "production:apple": {
-          "dependsOn": ["build:development:apple^"]
+          "dependsOn": ["build:production:apple^"]
         }
       }
     },
