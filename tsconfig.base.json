@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@incremental-test/config": ["config/src/index.ts"]
+      "@incremental-test/config": ["dist/config/"]
     }
   },
   "exclude": ["node_modules", "tmp"]
