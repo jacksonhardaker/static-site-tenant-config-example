@@ -6,11 +6,12 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/vite:build",
+      "executor": "nx:run-commands",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/config"
+        "outputPath": "dist/config",
+        "command": "node config/build.js {args.tenant}"
       },
       "configurations": {
         "development": {
@@ -20,20 +21,20 @@
           "mode": "production"
         },
         "production:orange": {
-          "configFile": "config/vite.config.orange.ts",
-          "mode": "production"
+          "mode": "production",
+          "args": "--tenant=orange"
         },
         "production:apple": {
-          "configFile": "config/vite.config.apple.ts",
-          "mode": "production"
+          "mode": "production",
+          "args": "--tenant=apple"
         },
         "development:orange": {
-          "configFile": "config/vite.config.orange.ts",
-          "mode": "development"
+          "mode": "development",
+          "args": "--tenant=orange"
         },
         "development:apple": {
-          "configFile": "config/vite.config.apple.ts",
-          "mode": "development"
+          "mode": "development",
+          "args": "--tenant=apple"
         }
       }
     }
