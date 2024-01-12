@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import config from '@incremental-test/config';
+import config from '@incremental-test/config/config.json';
 
 const { tenant } = config;
 
