@@ -5,14 +5,14 @@ const BASE = process.cwd();
 
 const [, , tenant = 'none'] = process.argv;
 
-if (!fs.existsSync(path.join(BASE, '/dist/config'))) {
-  fs.mkdirSync(path.join(BASE, '/dist/config'), { recursive: true });
+if (!fs.existsSync(path.join(BASE, '/dist/apps/service/public'))) {
+  fs.mkdirSync(path.join(BASE, '/dist/apps/service/public'), { recursive: true });
 }
 const config = {
   tenant,
 };
 
 fs.writeFileSync(
-  path.join(BASE, '/dist/config/config.json'),
+  path.join(BASE, '/dist/apps/service/public/config.js'),
   JSON.stringify(config, null, 2)
 );

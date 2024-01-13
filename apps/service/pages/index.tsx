@@ -1,9 +1,26 @@
+import { useEffect, useState } from 'react';
 import styles from './index.module.css';
-import config from '@incremental-test/config/config.json';
 
-const { tenant } = config;
+const useConfig = () => {
+  const [config, setConfig] = useState(
+    typeof window !== 'undefined'
+      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any)?._bitdrift?.config
+      : {
+          tenant: 'none',
+        }
+  );
+
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setConfig((window as any)?._bitdrift?.config);
+  }, []);
+
+  return config;
+};
 
 export function Index() {
+  const config = useConfig();
   /*
    * Replace the elements below with your own.
    *
@@ -16,7 +33,7 @@ export function Index() {
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              {tenant} 👋
+              {config?.tenant ?? 'stuff'} 👋
             </h1>
           </div>
         </div>
