@@ -6,7 +6,9 @@ const BASE = process.cwd();
 const [, , tenant = 'none'] = process.argv;
 
 if (!fs.existsSync(path.join(BASE, '/dist/apps/service/public'))) {
-  fs.mkdirSync(path.join(BASE, '/dist/apps/service/public'), { recursive: true });
+  fs.mkdirSync(path.join(BASE, '/dist/apps/service/public'), {
+    recursive: true,
+  });
 }
 const config = {
   tenant,
@@ -14,5 +16,8 @@ const config = {
 
 fs.writeFileSync(
   path.join(BASE, '/dist/apps/service/public/config.js'),
-  JSON.stringify(config, null, 2)
+  `window._bitdrift = {
+    config: ${JSON.stringify(config, null, 2)},
+  };
+  `
 );
