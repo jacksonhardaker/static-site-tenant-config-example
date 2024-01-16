@@ -8,35 +8,29 @@
     "build": {
       "executor": "nx:run-commands",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "defaultConfiguration": "default",
       "options": {
         "outputPath": "dist/config",
-        "command": "node config/build.js {args.tenant}"
+        "command": "node config/build.js {args.tenant} {args.environment}"
       },
       "configurations": {
-        "development": {
-          "mode": "development"
-        },
-        "production": {
-          "mode": "production"
+        "default": {
+          "args": "--tenant=orange --environment=production"
         },
         "production:orange": {
-          "mode": "production",
-          "args": "--tenant=orange"
+          "args": "--tenant=orange --environment=production"
         },
         "production:apple": {
-          "mode": "production",
-          "args": "--tenant=apple"
+          "args": "--tenant=apple --environment=production"
         },
-        "development:orange": {
-          "mode": "development",
-          "args": "--tenant=orange"
+        "staging:orange": {
+          "args": "--tenant=orange --environment=staging"
         },
-        "development:apple": {
-          "mode": "development",
-          "args": "--tenant=apple"
+        "staging:apple": {
+          "args": "--tenant=apple --environment=staging"
         }
       }
     }
-  }
+  },
+  "implicitDependencies": ["service"]
 }

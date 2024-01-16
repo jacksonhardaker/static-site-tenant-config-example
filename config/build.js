@@ -3,7 +3,9 @@ const path = require('path');
 
 const BASE = process.cwd();
 
-const [, , tenant = 'none'] = process.argv;
+const [, , tenant, environment] = process.argv;
+
+console.log({ tenant, environment });
 
 if (!fs.existsSync(path.join(BASE, '/dist/apps/service/public'))) {
   fs.mkdirSync(path.join(BASE, '/dist/apps/service/public'), {

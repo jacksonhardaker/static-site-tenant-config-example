@@ -11,26 +11,11 @@
       "options": {
         "outputPath": "dist/apps/service"
       },
-      "dependsOn": [
-        {
-          "target": "build",
-          "projects": "dependencies",
-          "params": "forward"
-        }
-      ],
       "configurations": {
         "development": {
           "outputPath": "apps/service"
         },
-        "development:orange": {
-          "outputPath": "apps/service"
-        },
-        "development:apple": {
-          "outputPath": "apps/service"
-        },
-        "production": {},
-        "production:orange": {},
-        "production:apple": {}
+        "production": {}
       }
     },
     "serve": {
@@ -40,13 +25,6 @@
         "buildTarget": "service:build",
         "dev": true
       },
-      "dependsOn": [
-        {
-          "target": "build",
-          "projects": "dependencies",
-          "params": "forward"
-        }
-      ],
       "configurations": {
         "development": {
           "buildTarget": "service:build:development",
@@ -55,14 +33,6 @@
         "production": {
           "buildTarget": "service:build:production",
           "dev": false
-        },
-        "development:orange": {
-          "buildTarget": "service:build:development:orange",
-          "dev": true
-        },
-        "development:apple": {
-          "buildTarget": "service:build:development:apple",
-          "dev": true
         }
       }
     },
@@ -84,6 +54,5 @@
       "outputs": ["{options.outputFile}"]
     }
   },
-  "tags": [],
-  "implicitDependencies": ["config"]
+  "tags": []
 }
