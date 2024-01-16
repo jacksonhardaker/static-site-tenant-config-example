@@ -8,12 +8,11 @@ const [, , tenant, environment] = process.argv;
 console.log({ tenant, environment });
 
 if (!fs.existsSync(path.join(BASE, '/dist/apps/service/public'))) {
-  fs.mkdirSync(path.join(BASE, '/dist/apps/service/public'), {
-    recursive: true,
-  });
+  throw Error('Apps must be built before running this script');
 }
 const config = {
   tenant,
+  environment,
 };
 
 fs.writeFileSync(
