@@ -1,23 +1,5 @@
-import { useEffect, useState } from 'react';
 import styles from './index.module.css';
-
-const useConfig = () => {
-  const [config, setConfig] = useState(
-    typeof window !== 'undefined'
-      ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any)?._bitdrift?.config
-      : {
-          tenant: 'none',
-        }
-  );
-
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setConfig((window as any)?._bitdrift?.config);
-  }, []);
-
-  return config;
-};
+import { useConfig } from '../src/useConfig';
 
 export function Index() {
   const config = useConfig();
@@ -33,7 +15,7 @@ export function Index() {
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              {config?.tenant ?? 'stuff'} 👋
+              {config?.tenant ?? null} 👋
             </h1>
           </div>
         </div>
