@@ -1,6 +1,11 @@
 import styles from './index.module.css';
 import { useConfig } from '../src/useConfig';
 
+const EMOJI = {
+  orange: '🍊',
+  apple: '🍎',
+};
+
 export function Index() {
   const config = useConfig();
   /*
@@ -15,7 +20,7 @@ export function Index() {
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              {config?.tenant ?? null} 👋
+              {config?.tenant ? EMOJI[config.tenant] : null} 👋
             </h1>
           </div>
         </div>
